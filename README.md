@@ -490,6 +490,8 @@ Other Style Guides
 ## Strings
 
   <a name="strings--quotes"></a><a name="6.1"></a>
+
+<!---
   - [6.1](#strings--quotes) Use single quotes `''` for strings. eslint: [`quotes`](http://eslint.org/docs/rules/quotes.html) jscs: [`validateQuoteMarks`](http://jscs.info/rule/validateQuoteMarks)
 
     ```javascript
@@ -502,6 +504,24 @@ Other Style Guides
     // good
     const name = 'Capt. Janeway';
     ```
+--->
+  - [6.1+](#strings--quotes) Use single quotes `''` for computational string values, but use double quotes `""` for strings values which are intended to be human readable, such as error messages or values that will appear in the UI. This allows for easy auditing of grammar and spelling of user consumable strings.
+ 
+    ```javascript
+    // bad
+    const id = "property-id";
+
+    // bad - template literals should contain interpolation or newlines
+    const message = (`Hello and welcome to ${location}`);
+
+    // good
+    const id = 'property-id';
+
+    // good
+    const message = "Property must be provided.";
+    
+    ```
+<!--- #end# --->
 
   <a name="strings--line-length"></a><a name="6.2"></a>
   - [6.2](#strings--line-length) Strings that cause the line to go over 100 characters should not be written across multiple lines using string concatenation.
